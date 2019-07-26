@@ -1,8 +1,8 @@
 ===============
 Functional-Zeek
 ===============
-A collection of Zeek scripts to demonstrate the power of Zeek's
-functions.
+A collection of Zeek scripts to demonstrate the power of 
+Zeek's functions.
 
 * annalise.zeek demonstrates function stacking.
 
@@ -12,4 +12,5 @@ functions.
 * matrix_ops.zeek demonstrates the process of transforming
   a vector with a function.
 
-* point.zeek is a point class written entirely with Zeek functions.
+* point.zeek is a point class written entirely with Zeek 
+  functions.
