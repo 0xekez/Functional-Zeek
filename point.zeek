@@ -1,15 +1,20 @@
 
+# A point is just a function that takes a action and an input and returns a
+# double.
 type point: function(action: string, other: double &default = -1): double;
 
 function make_point (x: double, y: double): point
     {
-    # getters
+    # Here is the crux of why this is so powerful. We have control
+    # over how these values are used and mutated. If we wanted we
+    # could move the point every time someone accessed its point.
+    # We can't do that sort of thing with a record.
     local get_x = function(): double
         { return x; };
     local get_y = function(): double
         { return y; };
 
-    # sets and returns the old value
+    # Sets and returns the old value.
     local set_x = function(new: double): double
         {
         local tmp = x;

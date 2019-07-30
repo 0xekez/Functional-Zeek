@@ -1,4 +1,0 @@
-[package]
-description = A collection of scripts to demonstrate
-    what can be done with Zeek's anonymous functions.
-aliases = func-zeek

@@ -1,10 +1,12 @@
+##! A couple examples to demonstrate the basics of using anonymous functions.
 
-
+# Generates a function that adds n to its arguments.
 function add_n (n: count) : function (m: count) : count
     {
     return function (m: count): count { return m + n; };
     }
 
+# Stacks two functions
 function stacker (one : function(a: count): count, two: function (b: count): count): function(c: count): count
     {
     return function (c: count): count
@@ -20,37 +22,19 @@ event zeek_init()
 
     local times_four = stacker(times_two, times_two);
 
-
-    local where = 0;
-
-    local make_counter = function() : function(): count
-        { return function() { return ++n; }; };
-
-    local counter = make_counter();
-    print counter();
-    print counter();
-
-    local sneaky_counter = make_counter();
-    print sneaky_counter();
-    print sneaky_counter();
-
-    ## now counter has different output
-    print counter();
+    print times_four(4); # 16
 
     local I = function (i: any) { print i; };
 
     I("dog");
     I(3);
+    # Printing a function outputs the function's body without comments. 
+    # For anonymous functions the function's unique identifier is also
+    # included.
+    I(I);
 
-    local map_I = function(f: function(a: any), v: vector of any)
-        {
-        for (index in v)
-            f(v[index]);
-        };
-
-    map_I(I, vector("dog", "cat", "fish"));
-    map_I(I, vector(1, 2, 3));
-
+    # Anything that can be done with a regular function can be done with
+    # a function declared in the global namespace.
     local make_adder = function(n: count): function(m: count): count
         {
         return function (m: count): count
